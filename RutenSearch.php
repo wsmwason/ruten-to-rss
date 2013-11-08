@@ -33,6 +33,9 @@ class RutenSearch {
 	public function getSearch()
 	{
     $search_url = preg_replace('#o=[0-9]+#', 'o=11', $this->_result_url);
+    if(!preg_match('#o=[0-9]+#isu', $this->_result_url)){
+      $this->_result_url.= '&o=11';
+    }
     if(preg_match('#k=([^&]+)#isu', $this->_result_url, $keyword)){
       $this->_keyword = $keyword[1];
     }
