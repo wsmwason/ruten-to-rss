@@ -60,3 +60,6 @@ $domains = array(
   'f.rimg.com.tw',
 );
 ```
+
+### converter.html
+快速將搜尋結果網址轉換為 RSS 路徑 `<form>`
