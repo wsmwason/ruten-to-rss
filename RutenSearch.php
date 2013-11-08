@@ -104,7 +104,7 @@ class RutenSearch {
 		$XML = new SimpleXMLElement('<?xml version="1.0" encoding="utf-8"?><rss version="2.0" />');
 		$channel = $XML->addChild('channel');
       $channel->addChild('title', $this->_keyword.' 露天拍賣關鍵字 RSS');
-      $channel->addChild('link', 'http://home.gamer.com.tw/creation.php?owner='.$this->_keyword);
+      $channel->addChild('link', 'http://www.ruten.com.tw/');
       $channel->addChild('language', 'zh-tw');
       $channel->addChild('lastBuildDate', date("D, j M Y H:i:s +0800", time()));
       $channel->addChild('ttl', '20');
