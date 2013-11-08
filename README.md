@@ -40,7 +40,7 @@ $RutenSearch->asXml();
 http://search.ruten.com.tw/search/s000.php?k=HTC+New+one&c=0&ctab=1&searchfrom=searchbars&f=512&o=9&m=1&fx=512&fy=1&h=0&p1=&p2=
 ```
 此時將該網址送往 example.php
-** 記得要做 urlencode **
+** 記得要做 base64_encode **
 ```php
 http://yourhost.domain/example.php?result_url=http%3A%2F%2Fsearch.ruten.com.tw%2Fsearch%2Fs000.php%3Fk%3DHTC%2BNew%2Bone%26c%3D0%26ctab%3D1%26searchfrom%3Dsearchbars%26f%3D512%26o%3D9%26m%3D1%26fx%3D512%26fy%3D1%26h%3D0%26p1%3D%26p2%3D
 ```
@@ -61,5 +61,5 @@ $domains = array(
 );
 ```
 
-### converter.html
+### converter.php
 快速將搜尋結果網址轉換為 RSS 路徑 `<form>`
