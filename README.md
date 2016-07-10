@@ -45,21 +45,5 @@ http://search.ruten.com.tw/search/s000.php?k=HTC+New+one&c=0&ctab=1&searchfrom=s
 http://yourhost.domain/example.php?result_url=http%3A%2F%2Fsearch.ruten.com.tw%2Fsearch%2Fs000.php%3Fk%3DHTC%2BNew%2Bone%26c%3D0%26ctab%3D1%26searchfrom%3Dsearchbars%26f%3D512%26o%3D9%26m%3D1%26fx%3D512%26fy%3D1%26h%3D0%26p1%3D%26p2%3D
 ```
 
-### proxy.php
-由於露天拍賣的圖片有防止盜連，
-因此不能直接用 `<img>` 的方式來呈現圖片，
-透過 proxy.php 會透過送出假 Referer 的方式存取圖片，
-但僅接受下列圖片網址的圖片檔案。
-```php
-$domains = array(
-  'a.rimg.com.tw',
-  'b.rimg.com.tw',
-  'c.rimg.com.tw',
-  'd.rimg.com.tw',
-  'e.rimg.com.tw',
-  'f.rimg.com.tw',
-);
-```
-
 ### converter.php
 快速將搜尋結果網址轉換為 RSS 路徑 `<form>`
