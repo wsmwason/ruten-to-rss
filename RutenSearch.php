@@ -117,8 +117,7 @@ class RutenSearch {
 
     foreach($this->_entries as $id => $entry){
 
-      $image_proxy = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']).'/proxy.php';
-      $image_url = $image_proxy.'?url='.urlencode($entry['image']);
+      $image_url = $entry['image'];
 
       $item = $channel->addChild('item');
         $item->addChild('title', $entry['title']);
