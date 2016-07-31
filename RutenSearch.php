@@ -38,7 +38,7 @@ class RutenSearch {
     }
     //echo $this->_result_url; exit;
     if(preg_match('#k=([^&]+)#isu', $this->_result_url, $keyword)){
-      $this->_keyword = $keyword[1];
+      $this->_keyword = urldecode($keyword[1]);
     }
     $html = $this->exec_search($search_url);
     $match_result_count = 0;
@@ -68,12 +68,16 @@ class RutenSearch {
       // 取出圖片
       preg_match_all('#<img src="([^"]+)" alt="[^"]+" title="[^"]+" border="0" itemprop="image" />#isu', $this->_html, $imageinfo);
 
+      // 取出價格
+      preg_match_all('#<meta itemprop="price" content="([0-9]+)" />#isu', $this->_html, $priceInfo);
+
       foreach($matches[1] as $i => $id){
         $entries[$id] = array(
           'id' => $id,
           'title' => $matches[2][$i],
           'url' => 'http://goods.ruten.com.tw/item/show?'.$id,
           'author' => $ownerinfo[1][$i],
+          'price' => $priceInfo[1][$i],
           'pubdate' => $dateinfo[1][$i],
           'image' => str_replace('_s', '_m', $imageinfo[1][$i]),
         );
@@ -123,7 +127,7 @@ class RutenSearch {
         $item->addChild('title', $entry['title']);
         $item->addChild('link', $entry['url']);
         $item->addChild('author', $entry['author']);
-        $item->addChild('description', '<img src="'.$image_url.'"> 商品編號: '.$id);
+        $item->addChild('description', '<img src="'.$image_url.'" /><br />商品編號: ' . $id . '<br />價格: ' . $entry['price']);
         $item->addChild('pubDate', date("D, j M Y H:i:s +0800", strtotime($entry['pubdate'])));
     }
 
